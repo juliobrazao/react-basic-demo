@@ -13,7 +13,7 @@ function TodoCard(props: any){
   )
 };
 
-export default function MyModal(){
+export default function Modal(){
   
   const { title, showModal, handleToggleModal } = useContext(AppContext);
   const [todos, setTodos] = useState<any[]>([]);

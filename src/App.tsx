@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AppContext } from "./App.context";
 import Navbar from "./components/Header";
-import MyModal from "./components/MyModal";
+import Modal from "./components/Modal";
 import Feed from "./components/Feed";
 
 interface ContainerFluidProps {
@@ -38,7 +38,7 @@ export default function App() {
         </nav>
         <Feed />
       </ContainerFluid>
-      <MyModal />
+      <Modal />
     </AppContext.Provider>
   );
 }
