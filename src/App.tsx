@@ -19,15 +19,15 @@ function ContainerFluid({ children }: ContainerFluidProps) {
 export default function App() {
 
   const [title, setTitle] = useState<string>("Minha Pagina");
-
   const [showModal, setShowModal] = useState(false);
+  const [newsToDisplay, setNewsToDisplay] = useState<number>(5);
 
   const handleToggleModal = () => {
     setShowModal(!showModal);
   };
 
   return (
-    <AppContext.Provider value={{title, setTitle, showModal, setShowModal, handleToggleModal}}>
+    <AppContext.Provider value={{title, setTitle, showModal, setShowModal, handleToggleModal, newsToDisplay, setNewsToDisplay}}>
       <Navbar />
       <ContainerFluid>
         <nav aria-label="breadcrumb">
