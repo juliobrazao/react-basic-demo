@@ -20,9 +20,9 @@ export default function Navbar(){
 
   return (
     <>
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
           <div className="container">
-          <a className="navbar-brand">{ props.title }</a>
+          <a className="navbar-brand">My Context Demo</a>
           <button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
