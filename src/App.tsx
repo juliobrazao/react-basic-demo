@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { AppContext } from "./App.context";
+import Navbar from "./components/Header";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface ContainerFluidProps {
+  children: React.ReactNode;
 }
 
-export default App;
+function ContainerFluid({ children }: ContainerFluidProps) {
+  return (
+    <div className="container-fluid mt-3">
+      {children}
+    </div>
+  );
+};
+
+export default function App() {
+
+  const [title, setTitle] = useState<string>("Minha Pagina");
+
+  return (
+    <AppContext.Provider value={{title, setTitle}}>
+      <Navbar />
+      <ContainerFluid>
+      </ContainerFluid>
+    </AppContext.Provider>
+  );
+}
