@@ -20,7 +20,7 @@ export default function App() {
 
   const [title, setTitle] = useState<string>("Minha Pagina");
   const [showModal, setShowModal] = useState(false);
-  const [newsToDisplay, setNewsToDisplay] = useState<number>(5);
+  const [newsToDisplay, setNewsToDisplay] = useState<number>(1);
 
   const handleToggleModal = () => {
     setShowModal(!showModal);
