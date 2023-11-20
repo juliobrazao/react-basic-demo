@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AppContext } from "./App.context";
 import Navbar from "./components/Header";
+import MyModal from "./components/MyModal";
 
 interface ContainerFluidProps {
   children: React.ReactNode;
@@ -18,11 +19,18 @@ export default function App() {
 
   const [title, setTitle] = useState<string>("Minha Pagina");
 
+  const [showModal, setShowModal] = useState(false);
+
+  const handleToggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
-    <AppContext.Provider value={{title, setTitle}}>
+    <AppContext.Provider value={{title, setTitle, showModal, setShowModal, handleToggleModal}}>
       <Navbar />
       <ContainerFluid>
       </ContainerFluid>
+      <MyModal />
     </AppContext.Provider>
   );
 }

@@ -32,7 +32,7 @@ export default function Navbar(){
               { menuItems.map(menuItem => <li className="nav-item"><a onClick={() => props.setTitle(menuItem.name)} className="nav-link">{menuItem.name}</a></li>)}
             </ul>
             <form className="d-flex my-2 my-lg-0">
-              <button type="button" className="btn btn-outline-success my-2 my-sm-0">Open Modal</button>
+              <button type="button" className="btn btn-outline-success my-2 my-sm-0" onClick={props.handleToggleModal}>Open Modal</button>
             </form>
           </div>
         </div>
