@@ -18,7 +18,7 @@ function ContainerFluid({ children }: ContainerFluidProps) {
 
 export default function App() {
 
-  const [title, setTitle] = useState<string>("Minha Pagina");
+  const [title, setTitle] = useState<string>("React Basic Demo");
   const [showModal, setShowModal] = useState(false);
   const [newsToDisplay, setNewsToDisplay] = useState<number>(1);
 
