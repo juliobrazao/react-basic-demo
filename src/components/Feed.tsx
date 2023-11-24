@@ -14,13 +14,13 @@ interface newsToDisplay {
 
 export function NewsCounter({ newsIdList }: newsToDisplay){
 
-  const { setNewsToDisplay } = useContext(AppContext);
+  const props = useContext(AppContext);
 
   return (
     <>
       <div className="mb-3">
         <label htmlFor="news_counter" className="form-label">News to Display ({ newsIdList.length })</label>
-        <select className="form-select form-select-lg" name="news_counter" id="news_counter" onChange={(e) => setNewsToDisplay(e.target.value)}>
+        <select className="form-select form-select-lg" name="news_counter" id="news_counter" onChange={(e) => props?.setNewsToDisplay(parseInt(e.target.value))}>
           { newsIdList.map(newsId => <option value={newsId}>{newsId}</option>)}
         </select>
       </div>
@@ -50,7 +50,7 @@ export function NewsBox(newsProps: Pick<NewsBoxProps, "title" | "body">){
 
 export default function Feed(){
 
-  const { newsToDisplay } = useContext(AppContext);
+  const props = useContext(AppContext);
   const [newsList, setNewsList] = useState<NewsBoxProps[]>([]);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function Feed(){
   return (
     <>
       <NewsCounter newsIdList={newsList.map(news => news.id)} />
-      { newsList && newsList.filter(news => news.id <= newsToDisplay).map(news => <NewsBox title={news.title} body={news.body} />)}
+      { (newsList && props) && newsList.filter(news => news.id <= props?.newsToDisplay).map(news => <NewsBox title={news.title} body={news.body} />)}
     </>
   )
 }

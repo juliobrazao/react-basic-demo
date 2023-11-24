@@ -15,7 +15,7 @@ function TodoCard(props: any){
 
 export default function Modal(){
   
-  const { title, showModal, handleToggleModal } = useContext(AppContext);
+  const props = useContext(AppContext);
   const [todos, setTodos] = useState<any[]>([]);
 
   useEffect(() => {
@@ -26,18 +26,18 @@ export default function Modal(){
 
   return (
     <div>
-      {showModal && (
-        <div className={`modal${showModal ? ' fade show' : ''}`} tabIndex={-1} role="dialog" style={{ display: 'block' }}>
+      {props?.showModal && (
+        <div className={`modal${props?.showModal ? ' fade show' : ''}`} tabIndex={-1} role="dialog" style={{ display: 'block' }}>
           <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">{ title }</h5>
+                <h5 className="modal-title">{ props?.title }</h5>
               </div>
               <div className="modal-body h-75">
                 { todos && todos.map(todo => <TodoCard isActive={todo.completed} title={todo.title} />)}
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={handleToggleModal}>
+                <button type="button" className="btn btn-secondary" onClick={props?.handleToggleModal}>
                   Close
                 </button>
                 {/* Additional buttons or actions can be added here */}
